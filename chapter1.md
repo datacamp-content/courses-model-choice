@@ -84,3 +84,49 @@ Schooling$exp76_3 <- (Schooling$exp76)^3
 ```{r}
 
 ```
+
+---
+
+## Data preparation 2
+
+```yaml
+type: NormalExercise
+key: 42caf1b942
+xp: 100
+```
+
+Some variables are saved as factors containing levels "yes" and "no". We want to change those.
+
+`@instructions`
+Convert the variables black, nearc4a, nerc4b, south66, south76, sinmom14, enroll76 and smsa76 to factor variables which have levels 1 and 0.
+Replace the existing variables in the dataset Schooling by these new variables.
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{r}
+
+```
+
+`@sample_code`
+```{r}
+Schooling$var <- as.factor(as.numeric(Schooling$var) - 1)
+```
+
+`@solution`
+```{r}
+Schooling$black <- as.factor(as.numeric(Schooling$black)-1)
+Schooling$nearc4a <- as.factor(as.numeric(Schooling$nearc4a)-1)
+Schooling$nearc4b <- as.factor(as.numeric(Schooling$nearc4b)-1)
+Schooling$south66 <- as.factor(as.numeric(Schooling$south66)-1)
+Schooling$south76 <- as.factor(as.numeric(Schooling$south76)-1)
+Schooling$sinmom14 <- as.factor(as.numeric(Schooling$sinmom14)-1)
+Schooling$enroll76 <- as.factor(as.numeric(Schooling$enroll76)-1)
+Schooling$smsa76 <- as.factor(as.numeric(Schooling$smsa76)-1)
+```
+
+`@sct`
+```{r}
+
+```
