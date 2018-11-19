@@ -83,3 +83,53 @@ sum_model2  <- summary(model2)
 ```{r}
 
 ```
+
+---
+
+## R2
+
+```yaml
+type: PureMultipleChoiceExercise
+key: 4e408e19b0
+xp: 50
+```
+
+A model with a higher number of regressors has always a higher R2.
+
+`@hint`
+
+
+`@possible_answers`
+wrong
+[right]
+unclear
+
+`@feedback`
+Unfortunately not.
+Yes, you are right.
+Unfortunately not.
+
+---
+
+## Adjusted R2
+
+```yaml
+type: PureMultipleChoiceExercise
+key: 90883cf28f
+xp: 50
+```
+
+A model with a higher number of regressors has always a higher adjusted R2.
+
+`@hint`
+
+
+`@possible_answers`
+[wrong]
+right
+unclear
+
+`@feedback`
+Yes, you are right.
+Unfortunately not.
+Unfortunately not.
