@@ -133,3 +133,84 @@ unclear
 Yes, you are right.
 Unfortunately not.
 Unfortunately not.
+
+---
+
+## Calculate the R2
+
+```yaml
+type: NormalExercise
+key: 0f17f63b8a
+xp: 100
+```
+
+
+
+`@instructions`
+Calculate the R2 for both models. Note that the R2 is saved in the summary object we saved up front.
+
+`@hint`
+The R2 is saved as r.squared, it can thus be extracted by …$r.squared.
+
+`@pre_exercise_code`
+```{r}
+model1_r2 <- 
+model2_r2 <- 
+```
+
+`@sample_code`
+```{r}
+model1_r2 <- 
+model2_r2 <- 
+```
+
+`@solution`
+```{r}
+model1_r2 <- sum_model1$r.squared
+model2_r2 <- sum_model2$r.squared
+```
+
+`@sct`
+```{r}
+
+```
+
+---
+
+## Calculate the adjusted R2
+
+```yaml
+type: NormalExercise
+key: 6984fe58ff
+xp: 100
+```
+
+
+
+`@instructions`
+Calculate the adjusted R2 for both models. Note that the adjusted R2 is saved in the summary object we saved up front.
+
+`@hint`
+The adjusted R2 is saved as adj.r.squared, it can thus be extracted by …$adj.r.squared.
+
+`@pre_exercise_code`
+```{r}
+
+```
+
+`@sample_code`
+```{r}
+model1_adr2 <- 
+model2_adr2 <- 
+```
+
+`@solution`
+```{r}
+model1_adr2 <- sum_model1$adj.r.squared
+model2_adr2 <- sum_model2$adj.r.squared
+```
+
+`@sct`
+```{r}
+
+```
