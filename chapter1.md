@@ -64,7 +64,10 @@ Append those four new variables to the dataset Schooling. You may do this in one
 
 `@pre_exercise_code`
 ```{r}
-
+install.packages("Ecdat")
+library(Ecdat)
+data("Schooling")
+head(Schooling)
 ```
 
 `@sample_code`
@@ -106,7 +109,14 @@ Replace the existing variables in the dataset Schooling by these new variables.
 
 `@pre_exercise_code`
 ```{r}
-
+install.packages("Ecdat")
+library(Ecdat)
+data("Schooling")
+head(Schooling)
+Schooling$ed76_2 <- (Schooling$ed76)^2
+Schooling$ed76_3 <- (Schooling$ed76)^3
+Schooling$exp76_2 <- (Schooling$exp76)^2
+Schooling$exp76_3 <- (Schooling$exp76)^3
 ```
 
 `@sample_code`

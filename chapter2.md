@@ -22,6 +22,7 @@ Save the model and the summary of it.
 
 `@pre_exercise_code`
 ```{r}
+install.packages("Ecdat")
 library(Ecdat)
 data("Schooling")
 head(Schooling)
