@@ -26,6 +26,19 @@ install.packages("Ecdat")
 library(Ecdat)
 data("Schooling")
 head(Schooling)
+Schooling$ed76_2 <- (Schooling$ed76)^2
+Schooling$ed76_3 <- (Schooling$ed76)^3
+Schooling$exp76_2 <- (Schooling$exp76)^2
+Schooling$exp76_3 <- (Schooling$exp76)^3
+
+Schooling$black <- as.factor(as.numeric(Schooling$black)-1)
+Schooling$nearc4a <- as.factor(as.numeric(Schooling$nearc4a)-1)
+Schooling$nearc4b <- as.factor(as.numeric(Schooling$nearc4b)-1)
+Schooling$south66 <- as.factor(as.numeric(Schooling$south66)-1)
+Schooling$south76 <- as.factor(as.numeric(Schooling$south76)-1)
+Schooling$sinmom14 <- as.factor(as.numeric(Schooling$sinmom14)-1)
+Schooling$enroll76 <- as.factor(as.numeric(Schooling$enroll76)-1)
+Schooling$smsa76 <- as.factor(as.numeric(Schooling$smsa76)-1)
 ```
 
 `@sample_code`
