@@ -22,7 +22,9 @@ Save the model and the summary of it.
 
 `@pre_exercise_code`
 ```{r}
-
+library(Ecdat)
+data("Schooling")
+head(Schooling)
 ```
 
 `@sample_code`
