@@ -3,7 +3,7 @@ title: 'Chapter Title Here'
 description: 'Chapter description goes here.'
 ---
 
-## Example coding exercise
+## Load data and preparation
 
 ```yaml
 type: NormalExercise
@@ -13,17 +13,18 @@ xp: 100
 skills: 1
 ```
 
-This is an example exercise.
+In a first step, we load the data and apply some changes to the variables.
 
 `@instructions`
-
+Load the dataset "Schooling" by using the data() function.
 
 `@hint`
-
+You have to type data("") where you place the name of the dataset in between the quotation marks. Type head(Schooling) to get a proper dataset (not a "promise").
 
 `@pre_exercise_code`
 ```{r}
-
+install.packages("Ecdat")
+library(Ecdat)
 ```
 
 `@sample_code`
@@ -33,7 +34,8 @@ This is an example exercise.
 
 `@solution`
 ```{r}
-
+data("Schooling")
+head(Schooling)
 ```
 
 `@sct`
