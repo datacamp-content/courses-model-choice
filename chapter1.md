@@ -45,7 +45,7 @@ head(Schooling)
 
 ---
 
-## Insert exercise title here
+## Data preparation 1
 
 ```yaml
 type: NormalExercise
@@ -53,10 +53,11 @@ key: 76f8ad6c1e
 xp: 100
 ```
 
-
+We now want to generate new variables and modify existing ones.
 
 `@instructions`
-
+Generate new variables for the square and a third order term of ed76 and exp76.
+Append those four new variables to the dataset Schooling. You may do this in one step
 
 `@hint`
 
@@ -68,12 +69,15 @@ xp: 100
 
 `@sample_code`
 ```{r}
-
+Schooling$ed76_2 <- ()^2
 ```
 
 `@solution`
 ```{r}
-
+Schooling$ed76_2 <- (Schooling$ed76)^2
+Schooling$ed76_3 <- (Schooling$ed76)^3
+Schooling$exp76_2 <- (Schooling$exp76)^2
+Schooling$exp76_3 <- (Schooling$exp76)^3
 ```
 
 `@sct`
