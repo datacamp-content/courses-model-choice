@@ -3,7 +3,7 @@ title: 'Chapter Title Here'
 description: 'Chapter description goes here.'
 ---
 
-## Load data and preparation
+## Load data
 
 ```yaml
 type: NormalExercise
@@ -13,7 +13,7 @@ xp: 100
 skills: 1
 ```
 
-In a first step, we load the data and apply some changes to the variables.
+In a first step, we load the data.
 
 `@instructions`
 Load the dataset "Schooling" by using the data() function.
@@ -36,6 +36,44 @@ library(Ecdat)
 ```{r}
 data("Schooling")
 head(Schooling)
+```
+
+`@sct`
+```{r}
+
+```
+
+---
+
+## Insert exercise title here
+
+```yaml
+type: NormalExercise
+key: 76f8ad6c1e
+xp: 100
+```
+
+
+
+`@instructions`
+
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{r}
+
+```
+
+`@sample_code`
+```{r}
+
+```
+
+`@solution`
+```{r}
+
 ```
 
 `@sct`
