@@ -206,14 +206,14 @@ sum_model2  <- summary(model2)
 
 `@sample_code`
 ```{r}
-model1_r2 <- 
-model2_r2 <- 
+model1r2 <- 
+model2r2 <- 
 ```
 
 `@solution`
 ```{r}
-model1_r2 <- sum_model1$r.squared
-model2_r2 <- sum_model2$r.squared
+model1r2 <- sum_model1$r.squared
+model2r2 <- sum_model2$r.squared
 ```
 
 `@sct`
@@ -261,20 +261,20 @@ sum_model1  <- summary(model1)
 model2      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76,data=Schooling)
 sum_model2  <- summary(model2)
 
-model1_r2 <- sum_model1$r.squared
-model2_r2 <- sum_model2$r.squared
+model1r2 <- sum_model1$r.squared
+model2r2 <- sum_model2$r.squared
 ```
 
 `@sample_code`
 ```{r}
-model1_adr2 <- 
-model2_adr2 <- 
+model1adr2 <- 
+model2adr2 <- 
 ```
 
 `@solution`
 ```{r}
-model1_adr2 <- sum_model1$adj.r.squared
-model2_adr2 <- sum_model2$adj.r.squared
+model1adr2 <- sum_model1$adj.r.squared
+model2adr2 <- sum_model2$adj.r.squared
 ```
 
 `@sct`
@@ -295,7 +295,7 @@ xp: 100
 
 
 `@instructions`
-List the R2 and the adjusted R2 for both models. Remember that you saved them by model1_r2, model2_r2, model1_adr2 and model2_adr2.
+List the R2 and the adjusted R2 for both models. Remember that you saved them by model1r2, model2r2, model2adr2 and model2adr2.
 
 `@hint`
 
@@ -322,10 +322,10 @@ sum_model1  <- summary(model1)
 model2      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76,data=Schooling)
 sum_model2  <- summary(model2)
 
-model1_r2 <- sum_model1$r.squared
-model2_r2 <- sum_model2$r.squared
-model1_adr2 <- sum_model1$adj.r.squared
-model2_adr2 <- sum_model2$adj.r.squared
+model1r2 <- sum_model1$r.squared
+model2r2 <- sum_model2$r.squared
+model1adr2 <- sum_model1$adj.r.squared
+model2adr2 <- sum_model2$adj.r.squared
 ```
 
 `@sample_code`
@@ -335,10 +335,10 @@ model2_adr2 <- sum_model2$adj.r.squared
 
 `@solution`
 ```{r}
-model1_r2
-model2_r2
-model1_adr2 
-model2_adr2 
+model1r2
+model2r2
+model1adr2 
+model2adr2 
 ```
 
 `@sct`
