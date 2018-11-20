@@ -130,8 +130,8 @@ A model with a higher number of regressors has always a higher R2.
 
 `@possible_answers`
 1. wrong
-3. [right]
-5. unclear
+2. [right]
+3. unclear
 
 `@feedback`
 Unfortunately not.
@@ -154,9 +154,9 @@ A model with a higher number of regressors has always a higher adjusted R2.
 
 
 `@possible_answers`
-[wrong]
-right
-unclear
+1. [wrong]
+2. right
+3. unclear
 
 `@feedback`
 Yes, you are right. The adjusted R2 decreases if irrelevant regressors are included.
