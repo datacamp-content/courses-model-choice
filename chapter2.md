@@ -360,7 +360,7 @@ There are other ways to measure the fit of a model than using the R2 and the adj
 The Akaike and the Bayesian Information Criterion are such measures. 
 
 `@instructions`
-Compute the AIC and BIC for both models. Use the functions AIC() and BIC().
+Compute the AIC and BIC for both models. Use the functions AIC() and BIC() and list them.
 
 `@hint`
 
@@ -407,6 +407,11 @@ model1_AIC <- AIC(model1)
 model1_BIC <- BIC(model1)
 model2_AIC <- AIC(model2)
 model2_BIC <- BIC(model2)
+model1_AIC
+model1_BIC
+model2_AIC
+model2_BIC
+
 ```
 
 `@sct`
