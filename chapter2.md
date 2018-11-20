@@ -281,3 +281,67 @@ model2_adr2 <- sum_model2$adj.r.squared
 ```{r}
 
 ```
+
+---
+
+## comparison R2
+
+```yaml
+type: NormalExercise
+key: ad1c9490db
+xp: 100
+```
+
+
+
+`@instructions`
+List the R2 and the adjusted R2 for both models. Remember that you saved them by model1_r2, model2_r2, model1_adr2 and model2_adr2.
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{r}
+Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
+Schooling$ed76_2 <- (Schooling$ed76)^2
+Schooling$ed76_3 <- (Schooling$ed76)^3
+Schooling$exp76_2 <- (Schooling$exp76)^2
+Schooling$exp76_3 <- (Schooling$exp76)^3
+
+Schooling$black <- as.factor(as.numeric(Schooling$black)-1)
+Schooling$nearc4a <- as.factor(as.numeric(Schooling$nearc4a)-1)
+Schooling$nearc4b <- as.factor(as.numeric(Schooling$nearc4b)-1)
+Schooling$south66 <- as.factor(as.numeric(Schooling$south66)-1)
+Schooling$south76 <- as.factor(as.numeric(Schooling$south76)-1)
+Schooling$sinmom14 <- as.factor(as.numeric(Schooling$sinmom14)-1)
+Schooling$enroll76 <- as.factor(as.numeric(Schooling$enroll76)-1)
+Schooling$smsa76 <- as.factor(as.numeric(Schooling$smsa76)-1)
+
+model1      <- lm(wage76~ed76+black, data=Schooling)
+sum_model1  <- summary(model1)
+model2      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76,data=Schooling)
+sum_model2  <- summary(model2)
+
+model1_r2 <- sum_model1$r.squared
+model2_r2 <- sum_model2$r.squared
+model1_adr2 <- sum_model1$adj.r.squared
+model2_adr2 <- sum_model2$adj.r.squared
+```
+
+`@sample_code`
+```{r}
+
+```
+
+`@solution`
+```{r}
+model1_r2
+model2_r2
+model1_adr2 
+model2_adr2 
+```
+
+`@sct`
+```{r}
+
+```
