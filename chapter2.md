@@ -418,3 +418,65 @@ model2_BIC
 ```{r}
 
 ```
+
+---
+
+## Best model by BIC
+
+```yaml
+type: NormalExercise
+key: a8c677a2c6
+xp: 100
+```
+
+So far, we have computed the AIC and BIC for just two models. However, we may consider a lot of models to find the best one. 
+Thus, we now want to find the best regressors for wage76. The regsubsets() function from the package leaps will try out all combinations of regressors.
+
+`@instructions`
+Load the package leaps. Use the regsubsets() function to regress wage76 on ed76, ed76_2, ed76_3, exp76, exp76_2, exp76_3, black, nearc4a, nearc4b, south66, south76, sinmom14, daded, momed, famed, enroll76 and smsa76.
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{r}
+Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
+Schooling$ed76_2 <- (Schooling$ed76)^2
+Schooling$ed76_3 <- (Schooling$ed76)^3
+Schooling$exp76_2 <- (Schooling$exp76)^2
+Schooling$exp76_3 <- (Schooling$exp76)^3
+
+Schooling$black <- as.factor(as.numeric(Schooling$black)-1)
+Schooling$nearc4a <- as.factor(as.numeric(Schooling$nearc4a)-1)
+Schooling$nearc4b <- as.factor(as.numeric(Schooling$nearc4b)-1)
+Schooling$south66 <- as.factor(as.numeric(Schooling$south66)-1)
+Schooling$south76 <- as.factor(as.numeric(Schooling$south76)-1)
+Schooling$sinmom14 <- as.factor(as.numeric(Schooling$sinmom14)-1)
+Schooling$enroll76 <- as.factor(as.numeric(Schooling$enroll76)-1)
+Schooling$smsa76 <- as.factor(as.numeric(Schooling$smsa76)-1)
+
+model1      <- lm(wage76~ed76+black, data=Schooling)
+sum_model1  <- summary(model1)
+model2      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76,data=Schooling)
+sum_model2  <- summary(model2)
+
+```
+
+`@sample_code`
+```{r}
+library()
+model3 <- regsubsets( ~ , data=Schooling)
+```
+
+`@solution`
+```{r}
+library(leaps)
+model3 <- regsubsets(wage76~ed76+ed76_2+ed76_3+exp76+exp76_2+exp76_3+
+                       black+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+
+                       famed+enroll76+smsa76, data=Schooling)
+```
+
+`@sct`
+```{r}
+
+```
