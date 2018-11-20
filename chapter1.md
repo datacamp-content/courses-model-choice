@@ -29,7 +29,8 @@ library(Ecdat)
 
 `@sample_code`
 ```{r}
-
+data("")
+head()
 ```
 
 `@solution`
