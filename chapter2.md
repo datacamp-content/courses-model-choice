@@ -357,7 +357,7 @@ xp: 100
 ```
 
 There are other ways to measure the fit of a model than using the R2 and the adjusted R2. 
-The Akaike and the Bayesian Information Criterion are such measures. 
+The Akaike and the Bayesian Information Criterion are such measures.
 
 `@instructions`
 Compute the AIC and BIC for both models. Use the functions AIC() and BIC() and list them.
