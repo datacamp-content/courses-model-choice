@@ -421,7 +421,7 @@ model2_BIC
 
 ---
 
-## Best model by BIC
+## Best model by BIC 1
 
 ```yaml
 type: NormalExercise
@@ -474,6 +474,75 @@ library(leaps)
 model3 <- regsubsets(wage76~ed76+ed76_2+ed76_3+exp76+exp76_2+exp76_3+
                        black+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+
                        famed+enroll76+smsa76, data=Schooling)
+```
+
+`@sct`
+```{r}
+
+```
+
+---
+
+## Best model by BIC 2
+
+```yaml
+type: NormalExercise
+key: a681447b09
+xp: 100
+```
+
+
+
+`@instructions`
+Plot the results of the regression by regsubsets().
+We now want to find the model which minimizes the BIC. You can do this by applying the which.min() function to the summary of model 3 where you directly extract the BIC by typing summary()$bic.
+Finally, we want to list the coefficients of the chosen model. You can do that by typing coef(model3,results of which.min)
+
+`@hint`
+You should put summary(model3)$bic inside the which.min() function.
+
+`@pre_exercise_code`
+```{r}
+Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
+Schooling$ed76_2 <- (Schooling$ed76)^2
+Schooling$ed76_3 <- (Schooling$ed76)^3
+Schooling$exp76_2 <- (Schooling$exp76)^2
+Schooling$exp76_3 <- (Schooling$exp76)^3
+
+Schooling$black <- as.factor(as.numeric(Schooling$black)-1)
+Schooling$nearc4a <- as.factor(as.numeric(Schooling$nearc4a)-1)
+Schooling$nearc4b <- as.factor(as.numeric(Schooling$nearc4b)-1)
+Schooling$south66 <- as.factor(as.numeric(Schooling$south66)-1)
+Schooling$south76 <- as.factor(as.numeric(Schooling$south76)-1)
+Schooling$sinmom14 <- as.factor(as.numeric(Schooling$sinmom14)-1)
+Schooling$enroll76 <- as.factor(as.numeric(Schooling$enroll76)-1)
+Schooling$smsa76 <- as.factor(as.numeric(Schooling$smsa76)-1)
+
+model1      <- lm(wage76~ed76+black, data=Schooling)
+sum_model1  <- summary(model1)
+model2      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76,data=Schooling)
+sum_model2  <- summary(model2)
+
+library(leaps)
+model3 <- regsubsets(wage76~ed76+ed76_2+ed76_3+exp76+exp76_2+exp76_3+
+                       black+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+
+                       famed+enroll76+smsa76, data=Schooling)
+```
+
+`@sample_code`
+```{r}
+plot(summary(model3)$bic) 
+which.min()
+coef()
+
+```
+
+`@solution`
+```{r}
+plot(summary(model3)$bic) 
+which.min(summary(model3)$bic)
+coef(model3, 8)
+
 ```
 
 `@sct`
