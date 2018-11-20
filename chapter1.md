@@ -62,15 +62,15 @@ Append those four new variables to the dataset Schooling. You may do this in one
 
 `@pre_exercise_code`
 ```{r}
-install.packages("Ecdat")
-library(Ecdat)
-data("Schooling")
-head(Schooling)
+Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 ```
 
 `@sample_code`
 ```{r}
 Schooling$ed76_2 <- ()^2
+Schooling$ed76_3 <-
+Schooling$exp76_2 <- 
+Schooling$exp76_3 <- 
 ```
 
 `@solution`
@@ -107,10 +107,7 @@ Replace the existing variables in the dataset Schooling by these new variables.
 
 `@pre_exercise_code`
 ```{r}
-install.packages("Ecdat")
-library(Ecdat)
-data("Schooling")
-head(Schooling)
+Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 Schooling$ed76_2 <- (Schooling$ed76)^2
 Schooling$ed76_3 <- (Schooling$ed76)^3
 Schooling$exp76_2 <- (Schooling$exp76)^2

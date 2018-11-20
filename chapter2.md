@@ -22,10 +22,7 @@ Save the model and the summary of it.
 
 `@pre_exercise_code`
 ```{r}
-install.packages("Ecdat")
-library(Ecdat)
-data("Schooling")
-head(Schooling)
+Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 Schooling$ed76_2 <- (Schooling$ed76)^2
 Schooling$ed76_3 <- (Schooling$ed76)^3
 Schooling$exp76_2 <- (Schooling$exp76)^2
@@ -79,7 +76,23 @@ Save the model and the summary of it.
 
 `@pre_exercise_code`
 ```{r}
+Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
+Schooling$ed76_2 <- (Schooling$ed76)^2
+Schooling$ed76_3 <- (Schooling$ed76)^3
+Schooling$exp76_2 <- (Schooling$exp76)^2
+Schooling$exp76_3 <- (Schooling$exp76)^3
 
+Schooling$black <- as.factor(as.numeric(Schooling$black)-1)
+Schooling$nearc4a <- as.factor(as.numeric(Schooling$nearc4a)-1)
+Schooling$nearc4b <- as.factor(as.numeric(Schooling$nearc4b)-1)
+Schooling$south66 <- as.factor(as.numeric(Schooling$south66)-1)
+Schooling$south76 <- as.factor(as.numeric(Schooling$south76)-1)
+Schooling$sinmom14 <- as.factor(as.numeric(Schooling$sinmom14)-1)
+Schooling$enroll76 <- as.factor(as.numeric(Schooling$enroll76)-1)
+Schooling$smsa76 <- as.factor(as.numeric(Schooling$smsa76)-1)
+
+model1      <- lm(wage76~ed76+black, data=Schooling)
+sum_model1  <- summary(model1)
 ```
 
 `@sample_code`
@@ -170,8 +183,25 @@ The R2 is saved as r.squared, it can thus be extracted by …$r.squared.
 
 `@pre_exercise_code`
 ```{r}
-model1_r2 <- 
-model2_r2 <- 
+Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
+Schooling$ed76_2 <- (Schooling$ed76)^2
+Schooling$ed76_3 <- (Schooling$ed76)^3
+Schooling$exp76_2 <- (Schooling$exp76)^2
+Schooling$exp76_3 <- (Schooling$exp76)^3
+
+Schooling$black <- as.factor(as.numeric(Schooling$black)-1)
+Schooling$nearc4a <- as.factor(as.numeric(Schooling$nearc4a)-1)
+Schooling$nearc4b <- as.factor(as.numeric(Schooling$nearc4b)-1)
+Schooling$south66 <- as.factor(as.numeric(Schooling$south66)-1)
+Schooling$south76 <- as.factor(as.numeric(Schooling$south76)-1)
+Schooling$sinmom14 <- as.factor(as.numeric(Schooling$sinmom14)-1)
+Schooling$enroll76 <- as.factor(as.numeric(Schooling$enroll76)-1)
+Schooling$smsa76 <- as.factor(as.numeric(Schooling$smsa76)-1)
+
+model1      <- lm(wage76~ed76+black, data=Schooling)
+sum_model1  <- summary(model1)
+model2      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76,data=Schooling)
+sum_model2  <- summary(model2)
 ```
 
 `@sample_code`
@@ -211,7 +241,28 @@ The adjusted R2 is saved as adj.r.squared, it can thus be extracted by …$adj.r
 
 `@pre_exercise_code`
 ```{r}
+Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
+Schooling$ed76_2 <- (Schooling$ed76)^2
+Schooling$ed76_3 <- (Schooling$ed76)^3
+Schooling$exp76_2 <- (Schooling$exp76)^2
+Schooling$exp76_3 <- (Schooling$exp76)^3
 
+Schooling$black <- as.factor(as.numeric(Schooling$black)-1)
+Schooling$nearc4a <- as.factor(as.numeric(Schooling$nearc4a)-1)
+Schooling$nearc4b <- as.factor(as.numeric(Schooling$nearc4b)-1)
+Schooling$south66 <- as.factor(as.numeric(Schooling$south66)-1)
+Schooling$south76 <- as.factor(as.numeric(Schooling$south76)-1)
+Schooling$sinmom14 <- as.factor(as.numeric(Schooling$sinmom14)-1)
+Schooling$enroll76 <- as.factor(as.numeric(Schooling$enroll76)-1)
+Schooling$smsa76 <- as.factor(as.numeric(Schooling$smsa76)-1)
+
+model1      <- lm(wage76~ed76+black, data=Schooling)
+sum_model1  <- summary(model1)
+model2      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76,data=Schooling)
+sum_model2  <- summary(model2)
+
+model1_r2 <- sum_model1$r.squared
+model2_r2 <- sum_model2$r.squared
 ```
 
 `@sample_code`
