@@ -129,11 +129,9 @@ A model with a higher number of regressors has always a higher R2.
 
 
 `@possible_answers`
-- wrong
-
-- {right}
-
-- unclear
+1. wrong
+3. right
+5. unclear
 
 `@feedback`
 Unfortunately not.
