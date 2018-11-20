@@ -494,7 +494,7 @@ xp: 100
 
 
 `@instructions`
-Plot the results of the regression by regsubsets().
+Plot the BIC of all models inside model3.
 We now want to find the model which minimizes the BIC. You can do this by applying the which.min() function to the summary of model 3 where you directly extract the BIC by typing summary()$bic.
 Finally, we want to list the coefficients of the chosen model. You can do that by typing coef(model3,results of which.min)
 
