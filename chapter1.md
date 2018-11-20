@@ -99,7 +99,7 @@ xp: 100
 Some variables are saved as factors containing levels "yes" and "no". We want to change those.
 
 `@instructions`
-Convert the variables black, nearc4a, nerc4b, south66, south76, sinmom14, enroll76 and smsa76 to factor variables which have levels 1 and 0.
+Convert the variables black, nearc4a, nearc4b, south66, south76, sinmom14, enroll76 and smsa76 to factor variables which have levels 1 and 0.
 Replace the existing variables in the dataset Schooling by these new variables.
 
 `@hint`

@@ -135,7 +135,7 @@ unclear
 
 `@feedback`
 Unfortunately not.
-Yes, you are right.
+Yes, you are right. A higher number of regressors mechanically increases the R2.
 Unfortunately not.
 
 ---
@@ -159,7 +159,7 @@ right
 unclear
 
 `@feedback`
-Yes, you are right.
+Yes, you are right. The adjusted R2 decreases if irrelevant regressors are included.
 Unfortunately not.
 Unfortunately not.
 
