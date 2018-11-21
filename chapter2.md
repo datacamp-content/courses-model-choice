@@ -134,9 +134,9 @@ A model with a higher number of regressors has always a higher R2.
 3. unclear
 
 `@feedback`
-Unfortunately not.
-Yes, you are right. A higher number of regressors mechanically increases the R2.
-Unfortunately not.
+1. Unfortunately not.
+2. Yes, you are right. A higher number of regressors mechanically increases the R2.
+3. Unfortunately not.
 
 ---
 
@@ -159,9 +159,9 @@ A model with a higher number of regressors has always a higher adjusted R2.
 3. unclear
 
 `@feedback`
-Yes, you are right. The adjusted R2 decreases if irrelevant regressors are included.
-Unfortunately not.
-Unfortunately not.
+1. Yes, you are right. The adjusted R2 decreases if irrelevant regressors are included.
+2. Unfortunately not.
+3. Unfortunately not.
 
 ---
 
@@ -421,7 +421,7 @@ model2_BIC
 
 ---
 
-## Best model by BIC 1
+## Best model by AIC 1
 
 ```yaml
 type: NormalExercise
@@ -430,10 +430,12 @@ xp: 100
 ```
 
 So far, we have computed the AIC and BIC for just two models. However, we may consider a lot of models to find the best one. 
-Thus, we now want to find the best regressors for wage76. The regsubsets() function from the package leaps will try out all combinations of regressors.
+Thus, we now want to find the best regressors for wage76. The step() function will allow us to stepwise include regressors, either by forward or backward procedures.
 
 `@instructions`
-Load the package leaps. Use the regsubsets() function to regress wage76 on ed76, ed76_2, ed76_3, exp76, exp76_2, exp76_3, black, nearc4a, nearc4b, south66, south76, sinmom14, daded, momed, famed, enroll76 and smsa76.
+Use the step() function to regress wage76 on ed76, ed76_2, ed76_3, exp76, exp76_2, exp76_3, black, nearc4a, nearc4b, south66, south76, sinmom14, daded, momed, famed, enroll76 and smsa76.
+First, use the forward procedure. Second, do the same exercise with the backward procedure. Do the included regressors differ?
+Finally, save the model which achieved the lowest AIC as model3.
 
 `@hint`
 
@@ -464,16 +466,30 @@ sum_model2  <- summary(model2)
 
 `@sample_code`
 ```{r}
-library()
-model3 <- regsubsets( ~ , data=Schooling)
+attach(Schooling)
+model3for   <- step(lm(wage76~1), wage76 ~  ,direction = "forward")
+
+model3back  <- step(lm(wage76 ~ ( )) ,direction = "backward")
+
+model3      <- lm(wage76 ~ , data=Schooling)
+
 ```
 
 `@solution`
 ```{r}
-library(leaps)
-model3 <- regsubsets(wage76~ed76+ed76_2+ed76_3+exp76+exp76_2+exp76_3+
-                       black+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+
-                       famed+enroll76+smsa76, data=Schooling)
+attach(Schooling)
+model3for   <- step(lm(wage76~1), wage76 ~ ed76+ed76_2+ed76_3+exp76+exp76_2+exp76_3+
+                 black+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+
+                 famed+enroll76+smsa76 ,direction = "forward")
+
+model3back  <- step(lm(wage76 ~ (ed76+ed76_2+ed76_3+exp76+exp76_2+exp76_3+
+                 black+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+
+                 famed+enroll76+smsa76)) ,direction = "backward")
+
+model3      <- lm(wage76 ~ ed76 + ed76_3 + exp76 + exp76_2 + exp76_3 + black + 
+               nearc4a + south76 + momed + enroll76 + smsa76, data=Schooling)
+detach(Schooling)
+
 ```
 
 `@sct`
@@ -483,69 +499,25 @@ model3 <- regsubsets(wage76~ed76+ed76_2+ed76_3+exp76+exp76_2+exp76_3+
 
 ---
 
-## Best model by BIC 2
+## Best model by AIC 2
 
 ```yaml
-type: NormalExercise
-key: a681447b09
-xp: 100
+type: PureMultipleChoiceExercise
+key: 88873e9859
+xp: 50
 ```
 
-
-
-`@instructions`
-Plot the BIC of all models inside model3.
-We now want to find the model which minimizes the BIC. You can do this by applying the which.min() function to the summary of model 3 where you directly extract the BIC by typing summary()$bic.
-Finally, we want to list the coefficients of the chosen model. You can do that by typing coef(model3,results of which.min)
+Which variable was included in the final model according to the backward procedure but not in the analogue model according to the forward procedure?
 
 `@hint`
-You should put summary(model3)$bic inside the which.min() function.
 
-`@pre_exercise_code`
-```{r}
-Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
-Schooling$ed76_2 <- (Schooling$ed76)^2
-Schooling$ed76_3 <- (Schooling$ed76)^3
-Schooling$exp76_2 <- (Schooling$exp76)^2
-Schooling$exp76_3 <- (Schooling$exp76)^3
 
-Schooling$black <- as.factor(as.numeric(Schooling$black)-1)
-Schooling$nearc4a <- as.factor(as.numeric(Schooling$nearc4a)-1)
-Schooling$nearc4b <- as.factor(as.numeric(Schooling$nearc4b)-1)
-Schooling$south66 <- as.factor(as.numeric(Schooling$south66)-1)
-Schooling$south76 <- as.factor(as.numeric(Schooling$south76)-1)
-Schooling$sinmom14 <- as.factor(as.numeric(Schooling$sinmom14)-1)
-Schooling$enroll76 <- as.factor(as.numeric(Schooling$enroll76)-1)
-Schooling$smsa76 <- as.factor(as.numeric(Schooling$smsa76)-1)
+`@possible_answers`
+1. smsa76
+2. south66
+3. [ed76_3]
 
-model1      <- lm(wage76~ed76+black, data=Schooling)
-sum_model1  <- summary(model1)
-model2      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76,data=Schooling)
-sum_model2  <- summary(model2)
-
-library(leaps)
-model3 <- regsubsets(wage76~ed76+ed76_2+ed76_3+exp76+exp76_2+exp76_3+
-                       black+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+
-                       famed+enroll76+smsa76, data=Schooling)
-```
-
-`@sample_code`
-```{r}
-plot(summary(model3)$bic) 
-which.min()
-coef()
-
-```
-
-`@solution`
-```{r}
-plot(summary(model3)$bic) 
-which.min(summary(model3)$bic)
-coef(model3, 8)
-
-```
-
-`@sct`
-```{r}
-
-```
+`@feedback`
+1. Unfortunately not.
+2. Unfortunately not.
+3. Yes, you are right. This implies that it depends which procedure we choose. A clearly undesirable feature.
