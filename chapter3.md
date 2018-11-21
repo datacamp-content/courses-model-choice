@@ -116,8 +116,7 @@ sum_model2  <- summary(model2)
 model3      <- lm(wage76 ~ ed76 + ed76_3 + exp76 + exp76_2 + exp76_3 + black + 
                nearc4a + south76 + momed + enroll76 + smsa76, data=Schooling)
 
-Schooling$obs <- 1:nrow(Schooling)
-obs_train <- sort(sample(Schooling$obs, 2/3*nrow(Schooling)))
+
 
 ```
 
