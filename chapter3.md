@@ -116,22 +116,23 @@ sum_model2  <- summary(model2)
 model3      <- lm(wage76 ~ ed76 + ed76_3 + exp76 + exp76_2 + exp76_3 + black + 
                nearc4a + south76 + momed + enroll76 + smsa76, data=Schooling)
 
+Schooling$obs <- 1:nrow(Schooling)
+obs_train <- sort(sample(Schooling$obs, 2/3*nrow(Schooling)))
+Schooling$train <- Schooling$obs %in% obs_train
+train <- Schooling[Schooling$train==TRUE,]
+test  <- Schooling[Schooling$train==FALSE,]
 
 
 ```
 
 `@sample_code`
 ```{r}
-model1_train      <- lm(wage76~ed76+black, data=)
-model2_train      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76, data=)
-model3_train      <- lm(wage76~ed76+ed76_3+exp76+exp76_2+exp76_3 black+nearc4a+south76+momed+enroll76+smsa76,data=)
+
 ```
 
 `@solution`
 ```{r}
-model1_train      <- lm(wage76~ed76+black, data=train)
-model2_train      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76, data=train)
-model3_train      <- lm(wage76~ed76+ed76_3+exp76+exp76_2+exp76_3 black+nearc4a+south76+momed+enroll76+smsa76,data=train)
+
 ```
 
 `@sct`
