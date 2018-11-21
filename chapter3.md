@@ -225,7 +225,11 @@ xp: 100
 
 
 `@instructions`
-First, generate a variable only containing the wages for the test sample.
+First, generate a variable Ytest only containing the wages for the test sample.
+Second, regress the squared difference of Ytest and yhat on a constant for every model.
+Third, extract the coefficient of the intercept and its standard deviation. 
+Note: In the solution, all these steps are done within one line. 
+Finally, list all the MSE errors.
 
 `@hint`
 
@@ -271,15 +275,50 @@ yhat3 <- predict(model3_train, newdata=test)
 
 `@sample_code`
 ```{r}
-
+model1_MSE <- summary(lm(()^2~1))$
+model2_MSE <- summary(lm(()^2~1))$
+model3_MSE <- summary(lm(()^2~1))$
+model1_MSE
+model2_MSE
+model3_MSE
 ```
 
 `@solution`
 ```{r}
-
+model1_MSE <- summary(lm((Ytest-yhat1)^2~1))$coef[1:2]	
+model2_MSE <- summary(lm((Ytest-yhat2)^2~1))$coef[1:2]	
+model3_MSE <- summary(lm((Ytest-yhat3)^2~1))$coef[1:2]	
+model1_MSE
+model2_MSE
+model3_MSE
 ```
 
 `@sct`
 ```{r}
 
 ```
+
+---
+
+## Mean Squared Error 2
+
+```yaml
+type: PureMultipleChoiceExercise
+key: 13afdabe1f
+xp: 50
+```
+
+Which one of the models has the lowest MSE?
+
+`@hint`
+
+
+`@possible_answers`
+1. Model 1
+2. Model 2
+3. [Model 3]
+
+`@feedback`
+1. Unfortunately not.
+2. Unfortunately not.
+3. Yes! This model does not use irrelevant regressors and has thus the best fit on the data.
