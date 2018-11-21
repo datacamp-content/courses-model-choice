@@ -118,9 +118,7 @@ model3      <- lm(wage76 ~ ed76 + ed76_3 + exp76 + exp76_2 + exp76_3 + black +
 
 Schooling$obs <- 1:nrow(Schooling)
 obs_train <- sort(sample(Schooling$obs, 2/3*nrow(Schooling)))
-Schooling$train <- Schooling$obs %in% obs_train
-train <- Schooling[Schooling$train==TRUE,]
-test  <- Schooling[Schooling$train==FALSE,]
+
 ```
 
 `@sample_code`
