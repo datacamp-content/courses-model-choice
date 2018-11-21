@@ -497,8 +497,7 @@ model3back  <- step(lm(wage76 ~ (ed76+ed76_2+ed76_3+exp76+exp76_2+exp76_3+
                  black+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+
                  famed+enroll76+smsa76)) ,direction = "backward")
 
-model3      <- lm(wage76 ~ ed76 + ed76_3 + exp76 + exp76_2 + exp76_3 + black + 
-               nearc4a + south76 + momed + enroll76 + smsa76, data=Schooling)
+model3      <- lm(wage76 ~ed76+ed76_3+exp76+exp76_2+exp76_3+black+nearc4a+south76+momed+enroll76+smsa76,data=Schooling)
 detach(Schooling)
 ```
 
