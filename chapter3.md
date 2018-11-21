@@ -71,3 +71,215 @@ test  <- Schooling[Schooling$train==FALSE,]
 ```{r}
 
 ```
+
+---
+
+## Model Estimation
+
+```yaml
+type: NormalExercise
+key: ae528fe9c9
+xp: 100
+```
+
+
+
+`@instructions`
+Estimate the tree models only using the training sample.
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{r}
+Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
+Schooling$ed76_2 <- (Schooling$ed76)^2
+Schooling$ed76_3 <- (Schooling$ed76)^3
+Schooling$exp76_2 <- (Schooling$exp76)^2
+Schooling$exp76_3 <- (Schooling$exp76)^3
+
+Schooling$black <- as.factor(as.numeric(Schooling$black)-1)
+Schooling$nearc4a <- as.factor(as.numeric(Schooling$nearc4a)-1)
+Schooling$nearc4b <- as.factor(as.numeric(Schooling$nearc4b)-1)
+Schooling$south66 <- as.factor(as.numeric(Schooling$south66)-1)
+Schooling$south76 <- as.factor(as.numeric(Schooling$south76)-1)
+Schooling$sinmom14 <- as.factor(as.numeric(Schooling$sinmom14)-1)
+Schooling$enroll76 <- as.factor(as.numeric(Schooling$enroll76)-1)
+Schooling$smsa76 <- as.factor(as.numeric(Schooling$smsa76)-1)
+
+model1      <- lm(wage76~ed76+black, data=Schooling)
+sum_model1  <- summary(model1)
+model2      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76,data=Schooling)
+sum_model2  <- summary(model2)
+model3      <- lm(wage76 ~ ed76 + ed76_3 + exp76 + exp76_2 + exp76_3 + black + 
+               nearc4a + south76 + momed + enroll76 + smsa76, data=Schooling)
+
+Schooling$obs <- 1:nrow(Schooling)
+obs_train <- sort(sample(Schooling$obs, 2/3*nrow(Schooling)))
+Schooling$train <- Schooling$obs %in% obs_train
+train <- Schooling[Schooling$train==TRUE,]
+test  <- Schooling[Schooling$train==FALSE,]
+```
+
+`@sample_code`
+```{r}
+model1_train      <- lm(wage76~ed76+black, data=)
+model2_train      <- lm(wage76~ed76+black+iqscore+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+kww+enroll76+smsa76, data=)
+model3_train      <- lm(wage76~ed76+ed76_3+exp76+exp76_2+exp76_3 black+nearc4a+south76+momed+enroll76+smsa76,data=)
+```
+
+`@solution`
+```{r}
+model1_train      <- lm(wage76~ed76+black, data=train)
+model2_train      <- lm(wage76~ed76+black+iqscore+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+kww+enroll76+smsa76, data=train)
+model3_train      <- lm(wage76~ed76+ed76_3+exp76+exp76_2+exp76_3 black+nearc4a+south76+momed+enroll76+smsa76,data=train)
+```
+
+`@sct`
+```{r}
+
+```
+
+---
+
+## Fitted Values
+
+```yaml
+type: NormalExercise
+key: 7747da1089
+xp: 100
+```
+
+
+
+`@instructions`
+Use the predict() function to get the fitted values for the test sample using the estimated parameters for the three models.
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{r}
+Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
+Schooling$ed76_2 <- (Schooling$ed76)^2
+Schooling$ed76_3 <- (Schooling$ed76)^3
+Schooling$exp76_2 <- (Schooling$exp76)^2
+Schooling$exp76_3 <- (Schooling$exp76)^3
+
+Schooling$black <- as.factor(as.numeric(Schooling$black)-1)
+Schooling$nearc4a <- as.factor(as.numeric(Schooling$nearc4a)-1)
+Schooling$nearc4b <- as.factor(as.numeric(Schooling$nearc4b)-1)
+Schooling$south66 <- as.factor(as.numeric(Schooling$south66)-1)
+Schooling$south76 <- as.factor(as.numeric(Schooling$south76)-1)
+Schooling$sinmom14 <- as.factor(as.numeric(Schooling$sinmom14)-1)
+Schooling$enroll76 <- as.factor(as.numeric(Schooling$enroll76)-1)
+Schooling$smsa76 <- as.factor(as.numeric(Schooling$smsa76)-1)
+
+model1      <- lm(wage76~ed76+black, data=Schooling)
+sum_model1  <- summary(model1)
+model2      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76,data=Schooling)
+sum_model2  <- summary(model2)
+model3      <- lm(wage76 ~ ed76 + ed76_3 + exp76 + exp76_2 + exp76_3 + black + 
+               nearc4a + south76 + momed + enroll76 + smsa76, data=Schooling)
+
+Schooling$obs <- 1:nrow(Schooling)
+obs_train <- sort(sample(Schooling$obs, 2/3*nrow(Schooling)))
+Schooling$train <- Schooling$obs %in% obs_train
+train <- Schooling[Schooling$train==TRUE,]
+test  <- Schooling[Schooling$train==FALSE,]
+
+model1_train      <- lm(wage76~ed76+black, data=train)
+model2_train      <- lm(wage76~ed76+black+iqscore+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+kww+enroll76+smsa76, data=train)
+model3_train      <- lm(wage76~ed76+ed76_3+exp76+exp76_2+exp76_3 black+nearc4a+south76+momed+enroll76+smsa76,data=train)
+```
+
+`@sample_code`
+```{r}
+yhat1 <- predict(, newdata=)	
+yhat2 <- predict(, newdata=)	
+yhat3 <- predict(, newdata=)	
+```
+
+`@solution`
+```{r}
+yhat1 <- predict(model1_train, newdata=test)	
+yhat2 <- predict(model2_train, newdata=test)	
+yhat3 <- predict(model3_train, newdata=test)	
+```
+
+`@sct`
+```{r}
+
+```
+
+---
+
+## Mean Squared Error
+
+```yaml
+type: NormalExercise
+key: b84715536e
+xp: 100
+```
+
+
+
+`@instructions`
+First, generate a variable only containing the wages for the test sample.
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{r}
+Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
+Schooling$ed76_2 <- (Schooling$ed76)^2
+Schooling$ed76_3 <- (Schooling$ed76)^3
+Schooling$exp76_2 <- (Schooling$exp76)^2
+Schooling$exp76_3 <- (Schooling$exp76)^3
+
+Schooling$black <- as.factor(as.numeric(Schooling$black)-1)
+Schooling$nearc4a <- as.factor(as.numeric(Schooling$nearc4a)-1)
+Schooling$nearc4b <- as.factor(as.numeric(Schooling$nearc4b)-1)
+Schooling$south66 <- as.factor(as.numeric(Schooling$south66)-1)
+Schooling$south76 <- as.factor(as.numeric(Schooling$south76)-1)
+Schooling$sinmom14 <- as.factor(as.numeric(Schooling$sinmom14)-1)
+Schooling$enroll76 <- as.factor(as.numeric(Schooling$enroll76)-1)
+Schooling$smsa76 <- as.factor(as.numeric(Schooling$smsa76)-1)
+
+model1      <- lm(wage76~ed76+black, data=Schooling)
+sum_model1  <- summary(model1)
+model2      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76,data=Schooling)
+sum_model2  <- summary(model2)
+model3      <- lm(wage76 ~ ed76 + ed76_3 + exp76 + exp76_2 + exp76_3 + black + 
+               nearc4a + south76 + momed + enroll76 + smsa76, data=Schooling)
+
+Schooling$obs <- 1:nrow(Schooling)
+obs_train <- sort(sample(Schooling$obs, 2/3*nrow(Schooling)))
+Schooling$train <- Schooling$obs %in% obs_train
+train <- Schooling[Schooling$train==TRUE,]
+test  <- Schooling[Schooling$train==FALSE,]
+
+model1_train      <- lm(wage76~ed76+black, data=train)
+model2_train      <- lm(wage76~ed76+black+iqscore+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+kww+enroll76+smsa76, data=train)
+model3_train      <- lm(wage76~ed76+ed76_3+exp76+exp76_2+exp76_3 black+nearc4a+south76+momed+enroll76+smsa76,data=train)
+
+yhat1 <- predict(model1_train, newdata=test)	
+yhat2 <- predict(model2_train, newdata=test)	
+yhat3 <- predict(model3_train, newdata=test)	
+```
+
+`@sample_code`
+```{r}
+
+```
+
+`@solution`
+```{r}
+
+```
+
+`@sct`
+```{r}
+
+```
