@@ -126,9 +126,9 @@ test  <- Schooling[Schooling$train==FALSE,]
 
 `@sample_code`
 ```{r}
-model1_train      <- lm(wage76~ed76+black, data=train)
-model2_train      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76, data=train)
-model3_train      <- lm(wage76 ~ed76+ed76_3+exp76+exp76_2+exp76_3+black+nearc4a+south76+momed+enroll76+smsa76,data=train)
+model1_train      <- lm(wage76~ed76+black, data=)
+model2_train      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76, data=)
+model3_train      <- lm(wage76 ~ed76+ed76_3+exp76+exp76_2+exp76_3+black+nearc4a+south76+momed+enroll76+smsa76,data=)
 
 ```
 
@@ -195,8 +195,8 @@ train <- Schooling[Schooling$train==TRUE,]
 test  <- Schooling[Schooling$train==FALSE,]
 
 model1_train      <- lm(wage76~ed76+black, data=train)
-model2_train      <- lm(wage76~ed76+black+iqscore+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+kww+enroll76+smsa76, data=train)
-model3_train      <- lm(wage76~ed76+ed76_3+exp76+exp76_2+exp76_3 black+nearc4a+south76+momed+enroll76+smsa76,data=train)
+model2_train      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76, data=train)
+model3_train      <- lm(wage76 ~ed76+ed76_3+exp76+exp76_2+exp76_3+black+nearc4a+south76+momed+enroll76+smsa76,data=train)
 ```
 
 `@sample_code`
@@ -272,8 +272,8 @@ train <- Schooling[Schooling$train==TRUE,]
 test  <- Schooling[Schooling$train==FALSE,]
 
 model1_train      <- lm(wage76~ed76+black, data=train)
-model2_train      <- lm(wage76~ed76+black+iqscore+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+kww+enroll76+smsa76, data=train)
-model3_train      <- lm(wage76~ed76+ed76_3+exp76+exp76_2+exp76_3 black+nearc4a+south76+momed+enroll76+smsa76,data=train)
+model2_train      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76, data=train)
+model3_train      <- lm(wage76~ed76+ed76_3+exp76+exp76_2+exp76_3+black+nearc4a+south76+momed+enroll76+smsa76,data=train)
 
 yhat1 <- predict(model1_train, newdata=test)	
 yhat2 <- predict(model2_train, newdata=test)	
@@ -282,6 +282,7 @@ yhat3 <- predict(model3_train, newdata=test)
 
 `@sample_code`
 ```{r}
+Ytest <- Schooling$wage76[]
 model1_MSE <- summary(lm(()^2~1))$
 model2_MSE <- summary(lm(()^2~1))$
 model3_MSE <- summary(lm(()^2~1))$
@@ -292,6 +293,7 @@ model3_MSE
 
 `@solution`
 ```{r}
+Ytest <- Schooling$wage76[Schooling$train==FALSE]
 model1_MSE <- summary(lm((Ytest-yhat1)^2~1))$coef[1:2]	
 model2_MSE <- summary(lm((Ytest-yhat2)^2~1))$coef[1:2]	
 model3_MSE <- summary(lm((Ytest-yhat3)^2~1))$coef[1:2]	
