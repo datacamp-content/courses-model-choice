@@ -26,6 +26,7 @@ Append a variable "train" to the dataset which is equal to "TRUE" if the observa
 
 `@pre_exercise_code`
 ```{r}
+set.seed(123456)
 Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 Schooling$ed76_2 <- (Schooling$ed76)^2
 Schooling$ed76_3 <- (Schooling$ed76)^3
@@ -92,6 +93,7 @@ Estimate the tree models only using the training sample.
 
 `@pre_exercise_code`
 ```{r}
+set.seed(123456)
 Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 Schooling$ed76_2 <- (Schooling$ed76)^2
 Schooling$ed76_3 <- (Schooling$ed76)^3
@@ -160,6 +162,7 @@ Use the predict() function to get the fitted values for the test sample using th
 
 `@pre_exercise_code`
 ```{r}
+set.seed(123456)
 Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 Schooling$ed76_2 <- (Schooling$ed76)^2
 Schooling$ed76_3 <- (Schooling$ed76)^3
@@ -236,6 +239,7 @@ Finally, list all the MSE errors.
 
 `@pre_exercise_code`
 ```{r}
+set.seed(123456)
 Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 Schooling$ed76_2 <- (Schooling$ed76)^2
 Schooling$ed76_3 <- (Schooling$ed76)^3
@@ -321,4 +325,4 @@ Which one of the models has the lowest MSE?
 `@feedback`
 1. Unfortunately not.
 2. Unfortunately not.
-3. Yes! This model does not use irrelevant regressors and has thus the best fit on the data.
+3. Yes! This model does not use irrelevant regressors and has thus the best fit on the data. Further, it has the lowest standard deviation.

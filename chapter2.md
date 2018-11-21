@@ -22,6 +22,7 @@ Save the model and the summary of it.
 
 `@pre_exercise_code`
 ```{r}
+set.seed(123456)
 Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 Schooling$ed76_2 <- (Schooling$ed76)^2
 Schooling$ed76_3 <- (Schooling$ed76)^3
@@ -76,6 +77,7 @@ Save the model and the summary of it.
 
 `@pre_exercise_code`
 ```{r}
+set.seed(123456)
 Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 Schooling$ed76_2 <- (Schooling$ed76)^2
 Schooling$ed76_3 <- (Schooling$ed76)^3
@@ -183,6 +185,7 @@ The R2 is saved as r.squared, it can thus be extracted by …$r.squared.
 
 `@pre_exercise_code`
 ```{r}
+set.seed(123456)
 Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 Schooling$ed76_2 <- (Schooling$ed76)^2
 Schooling$ed76_3 <- (Schooling$ed76)^3
@@ -241,6 +244,7 @@ The adjusted R2 is saved as adj.r.squared, it can thus be extracted by …$adj.r
 
 `@pre_exercise_code`
 ```{r}
+set.seed(123456)
 Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 Schooling$ed76_2 <- (Schooling$ed76)^2
 Schooling$ed76_3 <- (Schooling$ed76)^3
@@ -302,6 +306,7 @@ List the R2 and the adjusted R2 for both models. Remember that you saved them by
 
 `@pre_exercise_code`
 ```{r}
+set.seed(123456)
 Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 Schooling$ed76_2 <- (Schooling$ed76)^2
 Schooling$ed76_3 <- (Schooling$ed76)^3
@@ -367,6 +372,7 @@ Compute the AIC and BIC for both models. Use the functions AIC() and BIC() and l
 
 `@pre_exercise_code`
 ```{r}
+set.seed(123456)
 Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 Schooling$ed76_2 <- (Schooling$ed76)^2
 Schooling$ed76_3 <- (Schooling$ed76)^3
@@ -442,6 +448,7 @@ Finally, save the model which achieved the lowest AIC as model3.
 
 `@pre_exercise_code`
 ```{r}
+set.seed(123456)
 Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 Schooling$ed76_2 <- (Schooling$ed76)^2
 Schooling$ed76_3 <- (Schooling$ed76)^3

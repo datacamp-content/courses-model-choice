@@ -23,6 +23,7 @@ Use the head() function, to see the first lines of the dataset
 
 `@pre_exercise_code`
 ```{r}
+set.seed(123456)
 Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 ```
 
@@ -62,6 +63,7 @@ Append those four new variables to the dataset Schooling. You may do this in one
 
 `@pre_exercise_code`
 ```{r}
+set.seed(123456)
 Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 ```
 
@@ -107,6 +109,7 @@ Replace the existing variables in the dataset Schooling by these new variables.
 
 `@pre_exercise_code`
 ```{r}
+set.seed(123456)
 Schooling <- read.csv("http://assets.datacamp.com/production/repositories/4057/datasets/ac9460776cedb41072c2431250011c31148b0d61/Schooling.csv")
 Schooling$ed76_2 <- (Schooling$ed76)^2
 Schooling$ed76_3 <- (Schooling$ed76)^3
