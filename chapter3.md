@@ -86,7 +86,7 @@ xp: 100
 
 
 `@instructions`
-Estimate the tree models only using the training sample.
+Estimate the three models only using the training sample.
 
 `@hint`
 
@@ -126,14 +126,14 @@ test  <- Schooling[Schooling$train==FALSE,]
 `@sample_code`
 ```{r}
 model1_train      <- lm(wage76~ed76+black, data=)
-model2_train      <- lm(wage76~ed76+black+iqscore+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+kww+enroll76+smsa76, data=)
+model2_train      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76, data=)
 model3_train      <- lm(wage76~ed76+ed76_3+exp76+exp76_2+exp76_3 black+nearc4a+south76+momed+enroll76+smsa76,data=)
 ```
 
 `@solution`
 ```{r}
 model1_train      <- lm(wage76~ed76+black, data=train)
-model2_train      <- lm(wage76~ed76+black+iqscore+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+kww+enroll76+smsa76, data=train)
+model2_train      <- lm(wage76~ed76+black+exp76+nearc4a+nearc4b+south66+south76+sinmom14+daded+momed+famed+enroll76+smsa76, data=train)
 model3_train      <- lm(wage76~ed76+ed76_3+exp76+exp76_2+exp76_3 black+nearc4a+south76+momed+enroll76+smsa76,data=train)
 ```
 
