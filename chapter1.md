@@ -13,7 +13,7 @@ xp: 100
 skills: 1
 ```
 
-In a first step, we look at the data
+In a first step, we look at the Schooling dataset which is already loaded from the package "Ecdat". 
 
 `@instructions`
 Use the head() function, to see the first lines of the dataset
