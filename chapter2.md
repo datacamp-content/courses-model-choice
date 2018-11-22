@@ -578,6 +578,7 @@ model3      <- lm(wage76 ~ed76+ed76_3+exp76+exp76_2+exp76_3+black+nearc4a+south7
 `@sample_code`
 ```{r}
 dyn.load("http://assets.datacamp.com/production/repositories/4097/datasets/0649df3e93d71a80b500dd77abcdf09aa3aaebfd/leaps.dll")
+source("http://assets.datacamp.com/production/repositories/4097/datasets/53b75065987d1fe96c553d8570c6692e85f598a3/leaps.R")
 ```
 
 `@solution`
